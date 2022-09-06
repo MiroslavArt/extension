@@ -1,0 +1,34 @@
+{
+  "name": "Resume grabber",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Download resume from linkedin.com and hh.ru",
+  "browser_action": {
+    "default_icon": "src/img/icon.png",
+    "default_popup": "src/content.html"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/js/lib/jquery-3.4.1.min.js",
+        "src/js/model/contact.js",
+        "src/js/model/product.js",
+        "src/js/model/contacttransformer.js",
+        "src/js/api/helper.js",
+        "src/js/api/portalapi.js",
+        "src/js/parser/parserabstract.js",
+        "src/js/parser/parserhh.js",
+        "src/js/parser/parserlinkedin.js"
+      ]
+    }
+  ]
+}
